@@ -24,7 +24,7 @@ DELIMITER &&
 CREATE PROCEDURE get_amnt_due(in ac_no varchar(15),in monthd int,out bal double)  
 BEGIN
 
-    declare due double;
+    
     select sum(amount)-sum(amount)*0.05 into bal 
     from credit_info where acc_no=ac_no and month(date_of_trans)<=monthd;
 END &&  
